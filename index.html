@@ -31,12 +31,12 @@
         for (var q = 0; 0 < thePath.length - 1; q++) {
           if (q > thePath.length - 1) {
             return;
-          }
+          }/*
           if (gameBoard[thePath[q].x][thePath[q].y] == -1) {
             context.fillStyle = "yellow";
             context.fillRect(thePath[q].x * blockSize + 0.5, thePath[q].y * blockSize + 0.5, blockSize - 1, blockSize - 1);
           }
-        }/*
+        }
         for (var i = 1; i < theClosed.length - 1; i++) {
           context.fillStyle = "yellow";
           context.fillRect(theClosed[i].x * blockSize, theClosed[i].y * blockSize, blockSize, blockSize);
