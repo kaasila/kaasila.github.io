@@ -1,1 +1,63 @@
-Hello World
+<!DOCTYPE html>
+<html lang-"en">
+<head>
+  <meta charset="utf-8" />
+  <title>Snake</title>
+  <script src="SnakeController.js" type="text/javascript"></script>
+  <script>
+    window.onload = function() {
+      startGame(20, 20);
+      var blockSize = 500  / 20;
+      var canvas = document.getElementById("board");
+      var context = canvas.getContext("2d");
+
+      setInterval(function() {
+        document.getElementById("score").innerHTML= "Score: " + score;
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        moveSnake();
+        for(var x = 0; x < width; ++x) {
+          for (var y = 0; y < height; ++y) {
+            if (gameBoard[x][y] === 0) {
+              context.fillStyle = "cyan";
+              context.fillRect(x * blockSize + 0.5, y * blockSize + 0.5, blockSize - 1, blockSize - 1);
+            } else if (gameBoard[x][y] == 1) {
+              context.fillStyle = "magenta";
+              context.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
+            }
+          }
+        }
+
+        for (var q = 0; 0 < thePath.length - 1; q++) {
+          if (q > thePath.length - 1) {
+            return;
+          }
+          if (gameBoard[thePath[q].x][thePath[q].y] == -1) {
+            context.fillStyle = "yellow";
+            context.fillRect(thePath[q].x * blockSize + 0.5, thePath[q].y * blockSize + 0.5, blockSize - 1, blockSize - 1);
+          }
+        }/*
+        for (var i = 1; i < theClosed.length - 1; i++) {
+          context.fillStyle = "yellow";
+          context.fillRect(theClosed[i].x * blockSize, theClosed[i].y * blockSize, blockSize, blockSize);
+        }*/
+        /*
+        for (var i = 1; i < thePath.length - 1; i++) {
+          context.fillStyle = "red";
+          context.fillRect(thePath[i].x * blockSize, thePath[i].y * blockSize, blockSize, blockSize);
+        }*/
+      }, 50);
+    }
+  </script>
+</head>
+<body>
+
+<canvas id="board" width="500" height="500">
+  Browser not supported.
+</canvas>
+<div id="score">
+  Score:
+</div>
+
+</body>
+</html>
