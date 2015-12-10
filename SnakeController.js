@@ -129,7 +129,7 @@ function moveSnake() {
   }
   if (gameBoard[snake[snake.length-1].x] == undefined || gameBoard[snake[snake.length-1].x][snake[snake.length-1].y] == undefined ||
     snake[snake.length-1].x == undefined || snake[snake.length-1].y == undefined) {
-      console.log("O SHIT");
+      console.log("Error");
       return;
     }
   gameBoard[snake[snake.length-1].x][snake[snake.length-1].y] = -1;
