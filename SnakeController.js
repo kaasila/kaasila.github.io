@@ -130,6 +130,7 @@ function moveSnake() {
   if (gameBoard[snake[snake.length-1].x] == undefined || gameBoard[snake[snake.length-1].x][snake[snake.length-1].y] == undefined ||
     snake[snake.length-1].x == undefined || snake[snake.length-1].y == undefined) {
       console.log("Error");
+      location.reload();
       return;
     }
   gameBoard[snake[snake.length-1].x][snake[snake.length-1].y] = -1;
@@ -297,7 +298,7 @@ function Node(x, y, parent) {
 }
 
 // Calculate the best path from snake head to food
-function getBestPath() {
+function getBestPath(to) {
   currentStep = 1;
   if (snake.length < 1) {
     return;
@@ -413,6 +414,10 @@ function moveUp() {
   } else {
     snake[0].direction = 1;
   }
+}
+
+function zigZag() {
+    
 }
 
 // Allow the user to control the snake
